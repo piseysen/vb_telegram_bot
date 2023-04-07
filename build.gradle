@@ -28,8 +28,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'com.github.pengrad:java-telegram-bot-api:6.5.0'
-    implementation 'com.github.kshashov:spring-boot-starter-telegram:0.27'
     implementation 'org.telegram:telegrambots:6.5.0'
 }
 
