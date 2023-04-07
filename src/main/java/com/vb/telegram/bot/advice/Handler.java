@@ -1,9 +1,9 @@
 package com.vb.telegram.bot.advice;
 
-import com.vb.telegram.bot.dto.response.DataResponse;
-import com.vb.telegram.bot.dto.response.ResponseMsg;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class Handler {
 
     @ExceptionHandler(Exception.class)
-    public DataResponse<Object> handle(Exception ex, HttpServletRequest request, HttpServletResponse response) {
+    public ResponseEntity<Object> handle(Exception ex, HttpServletRequest request, HttpServletResponse response) {
         if (ex instanceof NullPointerException) {
-            return new DataResponse<>(ResponseMsg.responseBadRequestError(), null);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-        return new DataResponse<>(ResponseMsg.responseInternalServerError(), null);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }

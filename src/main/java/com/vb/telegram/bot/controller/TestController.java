@@ -4,12 +4,8 @@ import com.vb.telegram.bot.dto.response.DataResponse;
 import com.vb.telegram.bot.dto.response.ResponseMsg;
 import com.vb.telegram.bot.helper.Bot;
 import com.vb.telegram.bot.dto.Request.PostMessage;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 /**
@@ -32,7 +28,7 @@ public class TestController {
 
             return new DataResponse<>(ResponseMsg.responseSuccessful(), null);
 
-        } catch (TelegramApiException e) {
+        } catch (Exception e) {
             return new DataResponse<>(ResponseMsg.responseError(), null);
         }
     }
