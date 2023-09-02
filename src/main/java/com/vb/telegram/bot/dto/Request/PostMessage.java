@@ -17,4 +17,6 @@ public class PostMessage {
 
     private Long chatId;
     private String text;
+    private String botToken;
+    private String botUsername;
 }

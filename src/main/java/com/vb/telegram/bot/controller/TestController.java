@@ -21,9 +21,9 @@ public class TestController {
         TelegramBotsApi botsApi = null;
         try {
             botsApi = new TelegramBotsApi(DefaultBotSession.class);
-            botsApi.registerBot(new Bot());
+            botsApi.registerBot(new Bot(postMessage.getBotUsername(), postMessage.getBotToken()));
 
-            Bot bot = new Bot();
+            Bot bot = new Bot(postMessage.getBotUsername(), postMessage.getBotToken());
             bot.sendText(postMessage.getChatId(), postMessage.getText());
 
             return new DataResponse<>(ResponseMsg.responseSuccessful(), null);
